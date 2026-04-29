@@ -1,0 +1,29 @@
+services:
+  app:
+    build: .
+    container_name: openoffice_lab2_app
+    working_dir: /app
+    volumes:
+      - .:/app
+    depends_on:
+      - db
+    environment:
+      DB_HOST: db
+      DB_NAME: openoffice_vulnerabilities
+      DB_USER: openoffice_user
+      DB_PASSWORD: password
+    command: ["python3"]
+
+  db:
+    image: postgres:15
+    container_name: openoffice_lab2_db
+    environment:
+      POSTGRES_DB: openoffice_vulnerabilities
+      POSTGRES_USER: openoffice_user
+      POSTGRES_PASSWORD: password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+volumes:
+  postgres_data:
