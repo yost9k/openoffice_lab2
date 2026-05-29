@@ -37,7 +37,7 @@ docker compose up -d --build
 Запуск парсинга сайта Apache OpenOffice Security Bulletin и обогащения данных через API MITRE.
 
 ```bash
-docker compose exec app python3 collector.py --task all
+docker compose run --rm app python3 collector.py --task all
 ```
 
 ---
@@ -47,13 +47,13 @@ docker compose exec app python3 collector.py --task all
 Генерация XML-файла:
 
 ```bash
-docker compose exec app python3 converter.py
+docker compose run --rm app python3 converter.py
 ```
 
 Проверка корректности JSON-данных:
 
 ```bash
-docker compose exec app python3 validate_task.py
+docker compose run --rm app python3 validate_task.py
 ```
 
 
