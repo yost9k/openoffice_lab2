@@ -5,3 +5,4 @@ result_task_1.json
 result_task_2.json
 result_task_3.xml
 postgres_data/
+.cache/
