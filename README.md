@@ -75,7 +75,7 @@ vulnerability_cwe
 Команда запуска:
 
 ```bash
-docker compose exec app python3 db_filler.py
+docker compose run --rm app python3 db_filler.py
 ```
 
 ---
